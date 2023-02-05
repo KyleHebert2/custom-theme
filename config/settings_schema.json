@@ -4,8 +4,46 @@
     "theme_name": "Themekit template theme",
     "theme_version": "1.0.0",
     "theme_author": "Shopify",
-    "theme_documentation_url": "https://github.com/Shopify/themekit",
-    "theme_support_url": "https://github.com/Shopify/themekit/issues"
+    "theme_documentation_url": "https:\/\/github.com\/Shopify\/themekit",
+    "theme_support_url": "https:\/\/github.com\/Shopify\/themekit\/issues"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Primary Colors"
+      },
+      {
+        "type": "color",
+        "id": "background_one",
+        "label": "Section Background Color"
+      },
+      {
+        "type": "color",
+        "id": "background_two",
+        "label": "Section Background Color"
+      },
+      {
+        "type": "color_background",
+        "id": "gradient_one",
+        "label": "Section Gradient"
+      },
+      {
+        "type": "color_background",
+        "id": "gradient_two",
+        "label": "Section Gradient"
+      },
+      {
+        "type": "header",
+        "content": "Secondary Colors"
+      },
+      {
+        "type": "color",
+        "id": "font_color",
+        "label": "Text Color"
+      }
+    ]
   },
   {
     "name": "Typography",
@@ -25,6 +63,153 @@
         "id": "type_body_font",
         "default": "assistant_n4",
         "label": "Body Font"
+      }
+    ]
+  },
+  {
+    "name": "Page Styles",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Page Layout"
+      },
+      {
+        "type": "number",
+        "id": "page_width",
+        "label": "Page Width [ % ]",
+        "info": "This will be how much of the page will take based on screen size"
+      },
+      {
+        "type": "range",
+        "id": "max_page_width",
+        "min": 800,
+        "max": 1800,
+        "step": 50,
+        "label": "Max Page Width [ PX ]",
+        "info": "This will be the max width in pixels the content will take up",
+        "default": 1400
+      }
+    ]
+  },
+  {
+    "name": "Buttons",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Button Primary"
+      },
+      {
+        "type": "color",
+        "id": "button_primary_bg",
+        "label": "Button BG"
+      },
+      {
+        "type": "color",
+        "id": "button_primary_color",
+        "label": "Button Color"
+      },
+      {
+        "type": "color",
+        "id": "button_primary_bg_hover",
+        "label": "Button BG Hover"
+      },
+      {
+        "type": "color",
+        "id": "button_primary_color_hover",
+        "label": "Button Color Hover"
+      },
+      {
+        "type": "header",
+        "content": "Button Secondary"
+      },
+      {
+        "type": "color",
+        "id": "button_secondary_bg",
+        "label": "Button BG"
+      },
+      {
+        "type": "color",
+        "id": "button_secondary_color",
+        "label": "Button Color"
+      },
+      {
+        "type": "color",
+        "id": "button_secondary_bg_hover",
+        "label": "Button BG Hover"
+      },
+      {
+        "type": "color",
+        "id": "button_secondary_color_hover",
+        "label": "Button Color Hover"
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "url",
+        "id": "social_twitter_link",
+        "label": "Twitter Link"
+      },
+      {
+        "type": "url",
+        "id": "social_facebook_link",
+        "label": "Facebook Link"
+      },
+      {
+        "type": "url",
+        "id": "social_pinterest_link",
+        "label": "Pintrest Link"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram_link",
+        "label": "Instagram Link"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok_link",
+        "label": "Tik Tok Link"
+      },
+      {
+        "type": "url",
+        "id": "social_tumblr_link",
+        "label": "Tumblr Link"
+      },
+      {
+        "type": "url",
+        "id": "social_snapchat_link",
+        "label": "Snap Chat Link"
+      },
+      {
+        "type": "url",
+        "id": "social_youtube_link",
+        "label": "Youtube Link"
+      },
+      {
+        "type": "url",
+        "id": "social_vimeo_link",
+        "label": "Vinemo Link"
+      }
+    ]
+  },
+  {
+    "name": "Icons",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Cart Icon"
+      },
+      {
+        "type": "textarea",
+        "id": "cart_icon",
+        "label": "Cart SVG"
+      },
+      {
+        "type": "color",
+        "id": "cart_icon_color",
+        "label": "Cart Icon Color"
       }
     ]
   },
