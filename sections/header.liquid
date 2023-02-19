@@ -1,0 +1,131 @@
+{%- style -%}
+.header__main {
+  padding: {{ section.settings.header_padding }}px 0;
+}
+{%- endstyle -%}
+
+<header class="header">
+  <div class="container">
+    <div class="header__main color__{{ section.settings.header_color }}">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'header_logo' -%}
+            <div class="header__main__logo">
+              <img 
+                src="{{ block.settings.header_logo | image_url }}"
+                alt="{{ image.alt }}"
+                width="{{ image.width }}"
+                height="{{ image.height }}"
+                loading="lazy"
+                class="header__main__logo--img"
+              />
+            </div>
+          {%- when 'header_nav' -%}
+            <div class="header__main__nav">
+              <nav class="header__main__nav__inner">
+                {%- for link in block.settings.menu.links -%}
+                  <a 
+                    href="{{ link.url }}"
+                    class="header__main__nav__inner--link link__animation"
+                  >
+                    {{ link.title }}
+                  </a>  
+                {%- endfor -%}
+              </nav>
+            </div>
+          {%- when 'header_cart' -%}
+            <div class="header__main__cart">
+              <i 
+                class="cart-icon fa-solid fa-cart-shopping"
+              ></i>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "header_logo",
+      "name": "Logo",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "header_logo",
+          "label": "Logo"
+        }
+      ]       
+    },
+    {
+      "type": "header_nav",
+      "name": "Nav",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu",
+          "default": "main-menu"
+        }
+      ]       
+    },
+    {
+      "type": "header_cart",
+      "name": "Cart",
+      "limit": 1,
+      "settings": [
+        
+      ]       
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "select",
+      "id": "header_color",
+      "label": "Color Scheme",
+      "options": [
+        {
+          "value": "background-one",
+          "label": "Background One"
+        },
+        {
+          "value": "background-two",
+          "label": "Background Two"
+        },
+        {
+          "value": "gradient-one",
+          "label": "Gradient One"
+        },
+        {
+          "value": "gradient-two",
+          "label": "Gradient Two"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Styles"
+    },
+    {
+      "type": "range",
+      "id": "header_padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "label": "Padding Top And Bottom",
+      "default": 30
+    }
+  ]
+}
+{% endschema %}

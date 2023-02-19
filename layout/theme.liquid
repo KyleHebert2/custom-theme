@@ -46,6 +46,12 @@
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
   
       :root {
+
+        {% comment %} Fonts {% endcomment %}
+        --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+
+        --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+
         {% comment %} Primary Colors {% endcomment %}
         --background-one: {{ settings.background_one }};
         --background-two: {{ settings.background_two }};
@@ -53,11 +59,10 @@
         ---gradient-two: {{ settings.gradient_two }};
   
         {% comment %} Font Colors {% endcomment %}
-        --font-color: {{ settings.font_color }};
-  
-        {% comment %} Fonts {% endcomment %}
-        --headings-font: {{ settings.header_font.family }}, {{ settings.type_header_font.fallback_families }};
-        --body-font: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+        --color-one: {{ settings.color_one }};
+        --color-two: {{ settings.color_two }};
+        --color-three: {{ settings.color_three }};
+        --color-four: {{ settings.color_four }};
   
         {% comment %} Page Width {% endcomment %}
         --page-width: {{ settings.page_width }}%;
@@ -78,9 +83,14 @@
         {% comment %} Icons {% endcomment %}
         --cart-icon-color: {{ settings.cart_icon_color }};
       }
+
+      body {
+        font-family: var(--font-body-family);
+      }
+
     {%- endstyle -%}
   
-    {{ 'styles.css' | asset_url | stylesheet_tag }}
+    {{ 'sections.css' | asset_url | stylesheet_tag }}
     {{ 'global.css' | asset_url | stylesheet_tag }}
   
     {%- unless settings.type_body_font.system? -%}
@@ -89,6 +99,13 @@
     {%- unless settings.type_header_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
     {%- endunless -%}
+
+    {% comment %} Font Awesome {% endcomment %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% comment %} SWIPER CSS {% endcomment %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.4/swiper-bundle.min.css"/>
+    {% comment %} SWIPER JS {% endcomment %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.4/swiper-bundle.min.js"></script>
   
     <script src="{{ 'main.js' | asset_url }}" defer="defer"></script>
   

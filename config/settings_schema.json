@@ -12,7 +12,7 @@
     "settings": [
       {
         "type": "header",
-        "content": "Primary Colors"
+        "content": "Background One"
       },
       {
         "type": "color",
@@ -21,8 +21,26 @@
       },
       {
         "type": "color",
+        "id": "color_one",
+        "label": "Font Color"
+      },
+      {
+        "type": "header",
+        "content": "Background Two"
+      },
+      {
+        "type": "color",
         "id": "background_two",
         "label": "Section Background Color"
+      },
+      {
+        "type": "color",
+        "id": "color_two",
+        "label": "Font Color"
+      },
+      {
+        "type": "header",
+        "content": "Gradient One"
       },
       {
         "type": "color_background",
@@ -30,18 +48,23 @@
         "label": "Section Gradient"
       },
       {
+        "type": "color",
+        "id": "color_three",
+        "label": "Font Color"
+      },
+      {
+        "type": "header",
+        "content": "Gradient Two"
+      },
+      {
         "type": "color_background",
         "id": "gradient_two",
         "label": "Section Gradient"
       },
       {
-        "type": "header",
-        "content": "Secondary Colors"
-      },
-      {
         "type": "color",
-        "id": "font_color",
-        "label": "Text Color"
+        "id": "color_four",
+        "label": "Font Color"
       }
     ]
   },
@@ -50,19 +73,21 @@
     "settings": [
       {
         "type": "header",
-        "content": "Heading Font"
-      },
-      {
-        "type": "font_picker",
-        "id": "type_header_font",
-        "default": "assistant_n4",
-        "label": "Header Font"
+        "content": "Header Fonts"
       },
       {
         "type": "font_picker",
         "id": "type_body_font",
-        "default": "assistant_n4",
-        "label": "Body Font"
+        "default": "assistant_n4"
+      },
+      {
+        "type": "header",
+        "content": "Other Fonts"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "default": "assistant_n4"
       }
     ]
   },

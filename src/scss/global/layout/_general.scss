@@ -1,0 +1,78 @@
+body, html {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: var(--page-width);
+  max-width: var(--max-page-width);
+  margin: auto;
+}
+
+// Hide Mobile
+@media screen and (min-width: 900px) {
+
+  .mobile-only {
+    display: none;
+  }
+
+}
+
+// Hide Desktop
+@media screen and (max-width: 900px) {
+
+  .desktop-only {
+    display: none;
+  }
+
+}
+
+// Mobile Text Align
+@media screen and (min-width: 900px) {
+
+  .desktop {
+
+    &__text--align {
+  
+      &--right {
+        text-align: right;
+      }
+  
+      &--center {
+        text-align: center;
+      }
+  
+      &--left {
+        text-align: left;
+      }
+  
+    }
+  
+  }
+
+}
+
+// Mobile Text Align
+@media screen and (max-width: 900px) {
+  
+  .mobile {
+
+    &__text--align {
+  
+      &--right {
+        text-align: right;
+      }
+  
+      &--center {
+        text-align: center;
+      }
+  
+      &--left {
+        text-align: left;
+      }
+  
+    }
+  
+  }
+
+}

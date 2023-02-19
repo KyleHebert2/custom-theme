@@ -1,0 +1,23 @@
+img {
+  max-width: 100%;
+}
+
+.img {
+
+  &__position {
+
+    &--center {
+      object-position: center;
+    }
+
+    &--top {
+      object-position: top;
+    }
+
+    &--bottom {
+      object-position: bottom;
+    }
+
+  }
+
+}

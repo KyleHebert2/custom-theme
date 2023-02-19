@@ -1,0 +1,47 @@
+// Background One
+.color__background-one {
+  background-color: var(--background-one);
+  
+
+  h1, h2, h3, h4, h5, h6, p, span, a {
+    color: var(--color-one);
+  }
+
+}
+
+// Background Two
+.color__background-two {
+  background-color: var(--background-two);
+  
+  h1, h2, h3, h4, h5, h6, p, span, a {
+    color: var(--color-two);
+  }
+
+}
+
+// Gradient One
+.color__gradient-one {
+  background: var(--gradient-one);
+
+  h1, h2, h3, h4, h5, h6, p, span, a {
+    color: var(--color-three);
+  }
+  
+}
+
+// Gradient Two
+.color__gradient-two {
+  background: var(---gradient-two);
+  
+
+  h1, h2, h3, h4, h5, h6, p, span, a {
+    color: var(--color-four);
+  }
+
+}
+
+.cart-icon {
+  fill: var(--cart-icon-color);
+  color: var(--cart-icon-color);
+  cursor: pointer;
+}

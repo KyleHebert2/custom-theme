@@ -1,0 +1,154 @@
+.hero {
+
+  &__swiper {
+
+    &__slide {
+
+      &__inner {
+        position: relative;
+
+        &--img {
+          width: 100%;
+          object-fit: cover;
+          min-height: 80vh;
+          max-height: 80vh;
+        }
+
+        &--text {
+          position: absolute;
+          inset: 20px;
+          display: flex;
+
+          &__header {
+            font-size: 26px;
+            line-height: 28px;
+            margin: 5px 0;
+          }
+
+          &__paragraph {
+            font-size: 16px;
+            margin: 5px 0;
+            padding: 0;
+          }
+
+          &__button {
+            display: inline-block;
+            width: 80%;
+            border-radius: 5px;
+            padding: 10px 0;
+            text-align: center;
+            transition: all .3s ease-in-out;
+            text-decoration: none;
+          }
+
+          @media screen and (min-width: 900px) {
+
+            &__wrap {
+              width: 50%;
+            }
+            
+            &__position {
+  
+              &--top-left {
+                align-items: flex-start;
+                justify-content: flex-start;
+              }
+  
+              &--top-center {
+                align-items: flex-start;
+                justify-content: center;
+              }
+  
+              &--top-right {
+                align-items: flex-start;
+                justify-content: flex-end;
+              }
+  
+              &--center-left {
+                align-items: center;
+                justify-content: flex-start;
+              }
+  
+              &--center-center {
+                align-items: center;
+                justify-content: center;
+              }
+  
+              &--center-right {
+                align-items: center;
+                justify-content: flex-end;
+              }
+  
+              &--bottom-left {
+                align-items: flex-end;
+                justify-content: flex-start;
+              }
+  
+              &--bottom-center {
+                align-items: flex-end;
+                justify-content: center;
+              }
+  
+              &--bottom-right {
+                align-items: flex-end;
+                justify-content: flex-end;
+              }
+  
+            }
+
+          }
+
+          @media screen and (max-width: 900px) {
+
+            &__wrap {
+              width: 90%;
+            }
+
+            &__position {
+              
+              &--mobile {
+
+                &--top {
+                  align-items: flex-start;
+                  justify-content: center;
+                }
+
+                &--center {
+                  align-items: center;
+                  justify-content: center;
+                }
+
+                &--bottom {
+                  align-items: flex-end;
+                  justify-content: center;
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+
+  .swiper-pagination-bullet {
+    transition: all .3s ease-in-out;
+    border: 1px solid #fff;
+    height: 8px !important;
+    width: 10px !important;
+    border-radius: 5px !important;
+    
+    &-active {
+      width: 35px !important;
+    }
+
+  }
+
+}

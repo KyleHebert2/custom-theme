@@ -1,1 +1,342 @@
-<h2>Test</h2>
+{%- style -%}
+  {% for block in section.blocks %}
+    .hero__swiper__slide__inner--text__header--{{ block.id }} {
+      color: {{ block.settings.hero_header_color }};
+    }
+    .hero__swiper__slide__inner--text__paragraph--{{ block.id }} {
+      color: {{ block.settings.hero_paragraph_color }};
+    }
+    .hero__swiper__slide__inner--text__button--{{ block.id }} {
+      background-color: {{ block.settings.hero_button_bg }};
+      color: {{ block.settings.hero_button_color }};
+    }
+    .hero__swiper__slide__inner--text__button--{{ block.id }}:hover {
+      background-color: {{ block.settings.hero_button_bg_hover }};
+      color: {{ block.settings.hero_button_color_hover }};
+    }
+  {% endfor %}
+  .hero .swiper-pagination-bullet-active {
+    background: {{ section.settings.hero_pagination_active_bg }} !important;
+  }
+{%- endstyle -%}
+
+<div class="hero">
+  <div class="hero__swiper swiper mySwiperHero">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide hero__swiper__slide" {{ block.shopify_attributes }}>
+          <div class="hero__swiper__slide__inner">
+            <img 
+              src="{{ block.settings.hero_swiper_slide | image_url }}"
+              alt="{{ image.alt }}"
+              width="{{ image.width }}"
+              height="{{ image.height }}"
+              loading="lazy"
+              class="
+                hero__swiper__slide__inner--img 
+                img__position--{{ block.settings.hero_img_position }}
+                desktop-only
+              "
+            />
+            <img 
+              src="{{ block.settings.hero_swiper_slide_mobile | image_url }}"
+              alt="{{ image.alt }}"
+              width="{{ image.width }}"
+              height="{{ image.height }}"
+              loading="lazy"
+              class="
+                hero__swiper__slide__inner--img 
+                img__position--{{ block.settings.hero_img_position }}
+                mobile-only
+              "
+            />
+            <div 
+              class="
+                container
+                hero__swiper__slide__inner--text
+                hero__swiper__slide__inner--text__position--{{ block.settings.hero_text_position_desktop }}
+                desktop__text--align--{{ block.settings.hero_text_align_desktop }}
+                hero__swiper__slide__inner--text__position--mobile--{{ block.settings.hero_text_position_mobile }}
+                mobile__text--align--{{ block.settings.hero_text_align_mobile }}
+              "
+            >
+              <div class="hero__swiper__slide__inner--text__wrap">
+                <h2 
+                  class="
+                    hero__swiper__slide__inner--text__header 
+                    hero__swiper__slide__inner--text__header--{{ block.id }}
+                  "
+                >
+                  {{ block.settings.hero_header }}
+                </h2>
+                <div 
+                  class="
+                    hero__swiper__slide__inner--text__paragraph 
+                    hero__swiper__slide__inner--text__paragraph--{{ block.id }}
+                  "
+                >
+                  {{ block.settings.hero_paragraph }}
+                </div>
+                <a 
+                  href="{{ block.settings.hero_button_link }}" 
+                  class="
+                    hero__swiper__slide__inner--text__button
+                    hero__swiper__slide__inner--text__button--{{ block.id }}
+                  "
+                >
+                  {{ block.settings.hero_button_text }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>  
+      {% endfor %}
+    </div>
+    <div class="hero__swiper__pagination swiper-pagination"></div>
+  </div>
+</div>
+
+{% javascript %}
+const heroPagination = document.querySelector('.swiper-pagination-bullet-active');
+var swiper = new Swiper(".mySwiperHero", {
+  grabCursor: true,
+  autoplay: {
+    delay: 9000,
+    disableOnInteraction: false
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Styles"
+    },
+    {
+      "type": "color",
+      "id": "hero_pagination_active_bg",
+      "label": "Active Pagination BG"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Hero",
+      "name": "Hero",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image Styles"
+        },
+        {
+          "type": "select",
+          "id": "hero_img_position",
+          "label": "Image Position",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Desktop Font Settings"
+        },
+        {
+          "type": "select",
+          "id": "hero_text_position_desktop",
+          "label": "Text Position [Desktop]",
+          "options": [
+            {
+              "value": "top-left",
+              "label": "Top Left"
+            },
+            {
+              "value": "top-center",
+              "label": "Top Center"
+            },
+            {
+              "value": "top-right",
+              "label": "Top Left"
+            },
+            {
+              "value": "center-left",
+              "label": "Center Left"
+            },
+            {
+              "value": "center-center",
+              "label": "Center Center"
+            },
+            {
+              "value": "center-right",
+              "label": "Center Right"
+            },
+            {
+              "value": "bottom-left",
+              "label": "Bottom Left"
+            },
+            {
+              "value": "bottom-center",
+              "label": "Bottom Center"
+            },
+            {
+              "value": "bottom-right",
+              "label": "Bottom Right"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "hero_text_align_desktop",
+          "label": "Text Align Desktop",
+          "options": [
+            {
+              "value": "right",
+              "label": "Right"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "left",
+              "label": "Left"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Mobile Font Settings"
+        },
+        {
+          "type": "select",
+          "id": "hero_text_position_mobile",
+          "label": "Text Position [Mobile]",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "hero_text_align_mobile",
+          "label": "Text Align Mobile",
+          "options": [
+            {
+              "value": "right",
+              "label": "Right"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "left",
+              "label": "Left"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "hero_header_color",
+          "label": "Header Color"
+        },
+        {
+          "type": "color",
+          "id": "hero_paragraph_color",
+          "label": "Paragraph Color"
+        },
+        {
+          "type": "color",
+          "id": "hero_button_bg",
+          "label": "Button BG"
+        },
+        {
+          "type": "color",
+          "id": "hero_button_color",
+          "label": "Button Color"
+        },
+        {
+          "type": "color",
+          "id": "hero_button_bg_hover",
+          "label": "Button BG Hover"
+        },
+        {
+          "type": "color",
+          "id": "hero_button_color_hover",
+          "label": "Button Color Hover"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "hero_swiper_slide",
+          "label": "Desktop Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "hero_swiper_slide_mobile",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "text",
+          "id": "hero_header",
+          "label": "Header"
+        },
+        {
+          "type": "richtext",
+          "id": "hero_paragraph",
+          "label": "Paragraph"
+        },
+        {
+          "type": "url",
+          "id": "hero_button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "hero_button_text",
+          "label": "Button Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "category": "Hero"
+    }
+  ]
+}
+{% endschema %}
